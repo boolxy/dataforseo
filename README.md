@@ -1,6 +1,6 @@
 # DataForSEO
 
-The easiest way for using DataForSEO Api in PHP
+The easiest way for using DataForSEO APIs in PHP
 
 ## Installation
 
@@ -10,7 +10,7 @@ This package can be installed via Composer:
 composer require boolxy/dataforseo
 ```
 
-## Example Usage
+## Usage
 
 ```php
 use BoolXY\DataForSEO\DataForSEO;
@@ -35,18 +35,28 @@ $data = [
     ],
 ];
 
-$results = DataForSEO::create($base_uri, $user, $pass)
+$result = DataForSEO::create($base_uri, $user, $pass)
     ->setApi(Apis::KEYWORDS_DATA_API)
     ->setRequest(LiveDataRequest::create($data))
     ->get();
 ```
 
+With reviewing the tests, you can learn more...
+
+API document: [https://docs.dataforseo.com/v2/](https://docs.dataforseo.com/v2/)
+
 ## Testing
 
-Copy phpunit.xml.dist as phpunit.xml and update it.
+Copy phpunit.xml.dist as phpunit.xml and update it. After then you can start testing.
 
 ```bash
 vendor/bin/phpunit
+```
+
+or
+
+```bash
+composer test
 ```
 
 ## Credits
