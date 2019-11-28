@@ -2,7 +2,6 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-
 use BoolXY\DataForSEO\Api\OnPage\Requests\GetBrokenPagesRequest;
 use BoolXY\DataForSEO\Api\OnPage\Requests\GetDuplicatePagesRequest;
 use BoolXY\DataForSEO\Api\OnPage\Requests\GetFilteredPagesRequest;

@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class GetRankTasksResultsRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_GET;
 
+    protected $path = 'rnk_tasks_get/$task_id';
 }
