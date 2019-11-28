@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class SetTaskRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_POST;
 
+    protected $path = 'kwrd_finder_suggest_tasks_post';
 }

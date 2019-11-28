@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class GetRelevantPagesRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_POST;
 
+    protected $path = 'kwrd_finder_relevant_pages_get';
 }

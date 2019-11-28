@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class GetKeywordsForTermsRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_POST;
 
+    protected $path = 'kwrd_finder_kwrd_for_terms';
 }
