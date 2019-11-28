@@ -6,7 +6,7 @@ namespace BoolXY\DataForSEO\Api\Merchant\Requests\Amazon;
 use BoolXY\DataForSEO\Api\AbstractRequest;
 use BoolXY\DataForSEO\Api\RequestInterface;
 
-class SettingAmazonASINTasksRequest extends AbstractRequest implements RequestInterface
+class SettingASINTasksRequest extends AbstractRequest implements RequestInterface
 {
 
 }
