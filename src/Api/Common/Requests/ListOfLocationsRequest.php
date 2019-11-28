@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class ListOfLocationsRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_GET;
 
+    protected $path = 'cmn_locations/$country_iso_code';
 }

@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class UserRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_GET;
 
+    protected $path = 'cmn_user';
 }

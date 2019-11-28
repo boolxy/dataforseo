@@ -1,8 +1,10 @@
 <?php
 
+namespace BoolXY\DataForSEO\Tests;
+
 use BoolXY\DataForSEO\DataForSEO;
 use BoolXY\DataForSEO\Apis;
-use BoolXY\DataForSEO\Tests\TestCase;
+use BoolXY\DataForSEO\Api\CompetitorData\Requests\CompetitorInfoRequest;
 
 class CompetitorDataApiTest extends TestCase
 {
@@ -25,7 +27,7 @@ class CompetitorDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\CompetitorData\Requests\CompetitorInfoRequest::create($data))
+            ->setRequest(CompetitorInfoRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);

@@ -1,8 +1,41 @@
 <?php
 
+namespace BoolXY\DataForSEO\Tests;
+
 use BoolXY\DataForSEO\DataForSEO;
 use BoolXY\DataForSEO\Apis;
-use BoolXY\DataForSEO\Tests\TestCase;
+
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\LiveDataRequest as SVFK_LiveDataRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\LiveDataRequest as BKSV_LiveDataRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\LiveDataRequest as KFD_LiveDataRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\LiveDataRequest as KFK_LiveDataRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\LiveDataRequest as KFC_LiveDataRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\LiveDataRequest as ATFK_LiveDataRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\LiveDataRequest as ATBP_LiveDataRequest;
+
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\SetTaskRequest as SVFK_SetTaskRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\SetTaskRequest as BKSV_SetTaskRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\SetTaskRequest as KFD_SetTaskRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\SetTaskRequest as KFK_SetTaskRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\SetTaskRequest as KFC_SetTaskRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\SetTaskRequest as ATFK_SetTaskRequest;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\SetTaskRequest as ATBP_SetTaskRequest;
+
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\GetCompletedTasksRequest as SVFK_GCT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\GetCompletedTasksRequest as BKSV_GCT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\GetCompletedTasksRequest as KFD_GCT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\GetCompletedTasksRequest as KFK_GCT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\GetCompletedTasksRequest as KFC_GCT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\GetCompletedTasksRequest as ATFK_GCT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\GetCompletedTasksRequest as ATBP_GCT_Request;
+
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\GetResultsByTaskIdRequest as SVFK_GRBT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\GetResultsByTaskIdRequest as BKSV_GRBT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\GetResultsByTaskIdRequest as KFD_GRBT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\GetResultsByTaskIdRequest as KFK_GRBT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\GetResultsByTaskIdRequest as KFC_GRBT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\GetResultsByTaskIdRequest as ATFK_GRBT_Request;
+use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\GetResultsByTaskIdRequest as ATBP_GRBT_Request;
 
 class KeywordsDataApiTest extends TestCase
 {
@@ -41,7 +74,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\LiveDataRequest::create($data))
+            ->setRequest(SVFK_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -61,7 +94,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\LiveDataRequest::create($data))
+            ->setRequest(BKSV_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -78,7 +111,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\LiveDataRequest::create($data))
+            ->setRequest(KFD_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -100,7 +133,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\LiveDataRequest::create($data))
+            ->setRequest(KFK_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -118,7 +151,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\LiveDataRequest::create($data))
+            ->setRequest(KFC_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -140,7 +173,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\LiveDataRequest::create($data))
+            ->setRequest(ATFK_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -162,7 +195,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\LiveDataRequest::create($data))
+            ->setRequest(ATBP_LiveDataRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -184,7 +217,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\SetTaskRequest::create($data))
+            ->setRequest(SVFK_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -207,7 +240,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\SetTaskRequest::create($data))
+            ->setRequest(BKSV_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -225,7 +258,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\SetTaskRequest::create($data))
+            ->setRequest(KFD_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -245,7 +278,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\SetTaskRequest::create($data))
+            ->setRequest(KFK_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -262,7 +295,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\SetTaskRequest::create($data))
+            ->setRequest(KFC_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -284,7 +317,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\SetTaskRequest::create($data))
+            ->setRequest(ATFK_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -306,7 +339,7 @@ class KeywordsDataApiTest extends TestCase
         ];
 
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\SetTaskRequest::create($data))
+            ->setRequest(ATBP_SetTaskRequest::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -321,7 +354,7 @@ class KeywordsDataApiTest extends TestCase
     public function testSearchVolumeForKeywordGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\GetCompletedTasksRequest::create())
+            ->setRequest(SVFK_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -331,7 +364,7 @@ class KeywordsDataApiTest extends TestCase
     public function testBulkKeywordSearchVolumeGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\GetCompletedTasksRequest::create())
+            ->setRequest(BKSV_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -341,7 +374,7 @@ class KeywordsDataApiTest extends TestCase
     public function testKeywordsForDomainGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\GetCompletedTasksRequest::create())
+            ->setRequest(KFD_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -351,7 +384,7 @@ class KeywordsDataApiTest extends TestCase
     public function testKeywordsForKeywordsGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\GetCompletedTasksRequest::create())
+            ->setRequest(KFK_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -361,7 +394,7 @@ class KeywordsDataApiTest extends TestCase
     public function testKeywordsForCategoryGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\GetCompletedTasksRequest::create())
+            ->setRequest(KFC_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -371,7 +404,7 @@ class KeywordsDataApiTest extends TestCase
     public function testAdsTrafficForKeywordsGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\GetCompletedTasksRequest::create())
+            ->setRequest(ATFK_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -381,7 +414,7 @@ class KeywordsDataApiTest extends TestCase
     public function testAdsTrafficByPlatformsGetCompletedTasks()
     {
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\GetCompletedTasksRequest::create())
+            ->setRequest(ATBP_GCT_Request::create())
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -412,7 +445,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(SVFK_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -423,7 +456,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(BKSV_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -434,7 +467,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(KFD_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -445,7 +478,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(KFK_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -456,7 +489,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(KFC_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -467,7 +500,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(ATFK_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
@@ -478,7 +511,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $data = ["task_id" => $this->getTaskId(__FUNCTION__)];
         $result = $this->dfs
-            ->setRequest(BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\GetResultsByTaskIdRequest::create($data))
+            ->setRequest(ATBP_GRBT_Request::create($data))
             ->get();
 
         $this->assertEquals("ok", $result->status);
