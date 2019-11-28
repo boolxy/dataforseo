@@ -3,7 +3,6 @@
 
 namespace BoolXY\DataForSEO\Api\Common;
 
-
 use BoolXY\DataForSEO\Api\AbstractApi;
 use BoolXY\DataForSEO\Api\ApiInterface;
 

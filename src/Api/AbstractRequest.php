@@ -3,10 +3,8 @@
 
 namespace BoolXY\DataForSEO\Api;
 
-
 abstract class AbstractRequest implements RequestInterface
 {
-
     private $data = [];
 
     /**
@@ -49,7 +47,6 @@ abstract class AbstractRequest implements RequestInterface
     public function getPath(): string
     {
         if ($this->getMethod() === self::METHOD_GET) {
-
             $path = [];
 
             $data = $this->getData();
@@ -94,5 +91,4 @@ abstract class AbstractRequest implements RequestInterface
     {
         $this->data = $data;
     }
-
 }

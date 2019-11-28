@@ -4,7 +4,6 @@ namespace BoolXY\DataForSEO;
 
 class Client extends \GuzzleHttp\Client
 {
-
     private $base_uri;
 
     private $user;
@@ -22,5 +21,4 @@ class Client extends \GuzzleHttp\Client
             "auth" => [$this->user, $this->pass],
         ]);
     }
-
 }

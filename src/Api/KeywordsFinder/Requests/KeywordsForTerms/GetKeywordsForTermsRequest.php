@@ -3,7 +3,6 @@
 
 namespace BoolXY\DataForSEO\Api\KeywordsFinder\Requests\KeywordsForTerms;
 
-
 use BoolXY\DataForSEO\Api\AbstractRequest;
 use BoolXY\DataForSEO\Api\RequestInterface;
 

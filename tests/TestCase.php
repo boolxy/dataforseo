@@ -4,7 +4,6 @@ namespace BoolXY\DataForSEO\Tests;
 
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-
     protected $base_uri;
 
     protected $user;
@@ -19,5 +18,4 @@ class TestCase extends \PHPUnit\Framework\TestCase
         $this->user = getenv("DFS_USER");
         $this->pass = getenv("DFS_PASS");
     }
-
 }

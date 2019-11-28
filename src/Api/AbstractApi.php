@@ -3,13 +3,11 @@
 
 namespace BoolXY\DataForSEO\Api;
 
-
 use BoolXY\DataForSEO\Client;
 use GuzzleHttp\RequestOptions;
 
 abstract class AbstractApi implements ApiInterface
 {
-
     protected $client;
 
     protected $request;
@@ -86,5 +84,4 @@ abstract class AbstractApi implements ApiInterface
 
         return json_decode((string) $result->getBody());
     }
-
 }

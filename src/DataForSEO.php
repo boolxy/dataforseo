@@ -6,7 +6,6 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class DataForSEO
 {
-
     protected $client;
 
     protected $api;
@@ -63,5 +62,4 @@ class DataForSEO
     {
         return $this->api->get();
     }
-
 }

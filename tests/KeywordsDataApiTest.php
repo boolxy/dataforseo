@@ -6,7 +6,6 @@ use BoolXY\DataForSEO\Tests\TestCase;
 
 class KeywordsDataApiTest extends TestCase
 {
-
     private $dfs;
 
     protected function setUp(): void
@@ -486,5 +485,4 @@ class KeywordsDataApiTest extends TestCase
     }
 
     #endregion
-
 }

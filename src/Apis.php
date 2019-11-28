@@ -4,7 +4,6 @@ namespace BoolXY\DataForSEO;
 
 final class Apis
 {
-
     const COMMON_API = "CommonApi";
 
     const COMPETITOR_DATA_API = "CompetitorDataApi";
@@ -18,5 +17,4 @@ final class Apis
     const ON_PAGE_API = "OnPageApi";
 
     const RANK_TRACKER_API = "RankTrackerApi";
-
 }

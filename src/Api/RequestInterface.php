@@ -3,10 +3,8 @@
 
 namespace BoolXY\DataForSEO\Api;
 
-
 interface RequestInterface
 {
-
     const METHOD_GET = 'get';
 
     const METHOD_POST = 'post';
@@ -53,5 +51,4 @@ interface RequestInterface
      * @return void
      */
     public function setData(array $data): void;
-
 }

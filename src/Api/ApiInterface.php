@@ -2,12 +2,10 @@
 
 namespace BoolXY\DataForSEO\Api;
 
-
 use BoolXY\DataForSEO\Client;
 
 interface ApiInterface
 {
-
     public function setClient(Client $client): self;
 
     public function getClient(): Client;
@@ -17,5 +15,4 @@ interface ApiInterface
     public function getRequest(): RequestInterface;
 
     public function get();
-
 }
