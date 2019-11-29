@@ -43,7 +43,7 @@ $result = DataForSEO::create($base_uri, $user, $pass)
 
 With reviewing the tests, you can learn more...
 
-API documentation: [https://docs.dataforseo.com/v2/](https://docs.dataforseo.com/v2/)
+API documentation: [https://docs.dataforseo.com/](https://docs.dataforseo.com/)
 
 ## Testing
 

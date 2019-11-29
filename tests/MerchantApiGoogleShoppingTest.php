@@ -256,8 +256,8 @@ class MerchantApiGoogleShoppingTest extends TestCase
     public function testSettingProductSpecificationTasks()
     {
         $data = [];
-        $my_unq_id = mt_rand(0, 30000000);
 
+        $my_unq_id = mt_rand(0, 30000000);
         $data[$my_unq_id] = [
             "se_id" => 2933,
             "loc_name_canonical" => "London,England,United Kingdom",
