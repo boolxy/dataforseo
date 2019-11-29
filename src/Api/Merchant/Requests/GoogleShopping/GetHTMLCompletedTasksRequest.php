@@ -8,5 +8,7 @@ use BoolXY\DataForSEO\Api\RequestInterface;
 
 class GetHTMLCompletedTasksRequest extends AbstractRequest implements RequestInterface
 {
+    protected $method = self::METHOD_GET;
 
+    protected $path = 'merchant_google_shopping_html_tasks_get';
 }
