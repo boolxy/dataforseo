@@ -2,15 +2,14 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-use BoolXY\DataForSEO\Api\Common\Requests\GetAdWordsStatusRequest;
-use BoolXY\DataForSEO\Api\Common\Requests\GetKeywordIdRequest;
-use BoolXY\DataForSEO\Api\Common\Requests\ListOfClickstreamLocationsRequest;
-use BoolXY\DataForSEO\Api\Common\Requests\ListOfKeywordsFinderLocationsRequest;
-use BoolXY\DataForSEO\Api\Common\Requests\ListOfLocationsRequest;
-use BoolXY\DataForSEO\Api\Common\Requests\ListOfSearchEnginesRequest;
-use BoolXY\DataForSEO\Api\Common\Requests\UserRequest;
+use BoolXY\DataForSEO\Requests\Common\GetAdWordsStatusRequest;
+use BoolXY\DataForSEO\Requests\Common\GetKeywordIdRequest;
+use BoolXY\DataForSEO\Requests\Common\ListOfClickstreamLocationsRequest;
+use BoolXY\DataForSEO\Requests\Common\ListOfKeywordsFinderLocationsRequest;
+use BoolXY\DataForSEO\Requests\Common\ListOfLocationsRequest;
+use BoolXY\DataForSEO\Requests\Common\ListOfSearchEnginesRequest;
+use BoolXY\DataForSEO\Requests\Common\UserRequest;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
 class CommonApiTest extends TestCase
 {
@@ -20,8 +19,7 @@ class CommonApiTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::COMMON_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
 

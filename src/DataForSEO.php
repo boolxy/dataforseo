@@ -2,46 +2,27 @@
 
 namespace BoolXY\DataForSEO;
 
-use BoolXY\DataForSEO\Api\RequestInterface;
+use BoolXY\DataForSEO\Requests\RequestInterface;
+use GuzzleHttp\RequestOptions;
 
 class DataForSEO
 {
     protected $client;
 
-    protected $api;
+    protected $request;
 
-    /**
-     * DataForSEO constructor.
-     * @param string $base_uri
-     * @param string $user
-     * @param string $pass
-     */
-    public function __construct(string $base_uri, string $user, string $pass)
+    public function __construct(Client $client, RequestInterface $request = null)
     {
-        $this->client = new Client($base_uri, $user, $pass);
+        $this->client = $client;
+
+        if (isset($request)) {
+            $this->request = $request;
+        }
     }
 
-    /**
-     * @param string $base_uri
-     * @param string $user
-     * @param string $pass
-     * @return static
-     */
-    public static function create(string $base_uri, string $user, string $pass)
+    public static function create(Client $client, RequestInterface $request = null)
     {
-        return new static($base_uri, $user, $pass);
-    }
-
-    /**
-     * @param string $api
-     * @return $this
-     */
-    public function setApi(string $api): self
-    {
-        $api = "BoolXY\\DataForSEO\\Api\\" . str_replace("Api", "", $api) . "\\" . $api;
-        $this->api = new $api($this->client);
-
-        return $this;
+        return new static($client, $request);
     }
 
     /**
@@ -50,7 +31,7 @@ class DataForSEO
      */
     public function setRequest(RequestInterface $request): self
     {
-        $this->api->setRequest($request);
+        $this->request = $request;
 
         return $this;
     }
@@ -60,6 +41,25 @@ class DataForSEO
      */
     public function get()
     {
-        return $this->api->get();
+        $request = $this->request;
+
+        $method = $request->getMethod();
+
+        $path = $request->getPath();
+
+        $data = $request->getData();
+
+        $result = $this->client->$method($path, [
+            RequestOptions::SYNCHRONOUS => false,
+            RequestOptions::HEADERS => [
+                "Accept" => "application/json",
+                "Content-Type" => "application/json",
+            ],
+            RequestOptions::JSON => [
+                "data" => $data,
+            ],
+        ]);
+
+        return json_decode((string) $result->getBody());
     }
 }

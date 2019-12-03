@@ -15,7 +15,7 @@ composer require boolxy/dataforseo
 ```php
 use BoolXY\DataForSEO\DataForSEO;
 use BoolXY\DataForSEO\Apis;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\Requests\SearchVolumeForKeyword\LiveDataRequest;
 
 $data = [
     [

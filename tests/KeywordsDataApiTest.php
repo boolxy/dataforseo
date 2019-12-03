@@ -3,39 +3,38 @@
 namespace BoolXY\DataForSEO\Tests;
 
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\LiveDataRequest as SVFK_LiveDataRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\LiveDataRequest as BKSV_LiveDataRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\LiveDataRequest as KFD_LiveDataRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\LiveDataRequest as KFK_LiveDataRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\LiveDataRequest as KFC_LiveDataRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\LiveDataRequest as ATFK_LiveDataRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\LiveDataRequest as ATBP_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\SearchVolumeForKeyword\LiveDataRequest as SVFK_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\BulkKeywordSearchVolume\LiveDataRequest as BKSV_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForDomain\LiveDataRequest as KFD_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForKeywords\LiveDataRequest as KFK_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForCategory\LiveDataRequest as KFC_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficForKeywords\LiveDataRequest as ATFK_LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficByPlatforms\LiveDataRequest as ATBP_LiveDataRequest;
 
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\SetTaskRequest as SVFK_SetTaskRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\SetTaskRequest as BKSV_SetTaskRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\SetTaskRequest as KFD_SetTaskRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\SetTaskRequest as KFK_SetTaskRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\SetTaskRequest as KFC_SetTaskRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\SetTaskRequest as ATFK_SetTaskRequest;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\SetTaskRequest as ATBP_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\SearchVolumeForKeyword\SetTaskRequest as SVFK_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\BulkKeywordSearchVolume\SetTaskRequest as BKSV_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForDomain\SetTaskRequest as KFD_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForKeywords\SetTaskRequest as KFK_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForCategory\SetTaskRequest as KFC_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficForKeywords\SetTaskRequest as ATFK_SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficByPlatforms\SetTaskRequest as ATBP_SetTaskRequest;
 
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\GetCompletedTasksRequest as SVFK_GCT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\GetCompletedTasksRequest as BKSV_GCT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\GetCompletedTasksRequest as KFD_GCT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\GetCompletedTasksRequest as KFK_GCT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\GetCompletedTasksRequest as KFC_GCT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\GetCompletedTasksRequest as ATFK_GCT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\GetCompletedTasksRequest as ATBP_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\SearchVolumeForKeyword\GetCompletedTasksRequest as SVFK_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\BulkKeywordSearchVolume\GetCompletedTasksRequest as BKSV_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForDomain\GetCompletedTasksRequest as KFD_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForKeywords\GetCompletedTasksRequest as KFK_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForCategory\GetCompletedTasksRequest as KFC_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficForKeywords\GetCompletedTasksRequest as ATFK_GCT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficByPlatforms\GetCompletedTasksRequest as ATBP_GCT_Request;
 
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\SearchVolumeForKeyword\GetResultsByTaskIdRequest as SVFK_GRBT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\BulkKeywordSearchVolume\GetResultsByTaskIdRequest as BKSV_GRBT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForDomain\GetResultsByTaskIdRequest as KFD_GRBT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForKeywords\GetResultsByTaskIdRequest as KFK_GRBT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\KeywordsForCategory\GetResultsByTaskIdRequest as KFC_GRBT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficForKeywords\GetResultsByTaskIdRequest as ATFK_GRBT_Request;
-use BoolXY\DataForSEO\Api\KeywordsData\Requests\AdsTrafficByPlatforms\GetResultsByTaskIdRequest as ATBP_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\SearchVolumeForKeyword\GetResultsByTaskIdRequest as SVFK_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\BulkKeywordSearchVolume\GetResultsByTaskIdRequest as BKSV_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForDomain\GetResultsByTaskIdRequest as KFD_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForKeywords\GetResultsByTaskIdRequest as KFK_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\KeywordsForCategory\GetResultsByTaskIdRequest as KFC_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficForKeywords\GetResultsByTaskIdRequest as ATFK_GRBT_Request;
+use BoolXY\DataForSEO\Requests\KeywordsData\AdsTrafficByPlatforms\GetResultsByTaskIdRequest as ATBP_GRBT_Request;
 
 class KeywordsDataApiTest extends TestCase
 {
@@ -45,8 +44,7 @@ class KeywordsDataApiTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::KEYWORDS_DATA_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
 
@@ -429,7 +427,7 @@ class KeywordsDataApiTest extends TestCase
     {
         $class = str_replace('test', '', $fn);
         $class = str_replace('GetResultsByTaskId', '', $class);
-        $class = "BoolXY\\DataForSEO\\Api\\KeywordsData\\Requests\\" . $class . "\\GetCompletedTasksRequest";
+        $class = "BoolXY\\DataForSEO\\Requests\\KeywordsData\\" . $class . "\\GetCompletedTasksRequest";
 
         do {
             $result = $this->dfs

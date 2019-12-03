@@ -2,20 +2,20 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
+use BoolXY\DataForSEO\Client;
+
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-    protected $base_uri;
-
-    protected $user;
-
-    protected $pass;
+    protected $client;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->base_uri = getenv("DFS_BASE_URI");
-        $this->user = getenv("DFS_USER");
-        $this->pass = getenv("DFS_PASS");
+        $this->client = new Client(
+            getenv("DFS_BASE_URI"),
+            getenv("DFS_USER"),
+            getenv("DFS_PASS"),
+        );
     }
 }

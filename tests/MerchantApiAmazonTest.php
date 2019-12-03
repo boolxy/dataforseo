@@ -2,17 +2,16 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\GetASINCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\GetASINResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\GetCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\GetHTMLCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\GetHTMLResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\GetResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\SettingASINTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\SettingHTMLTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\Amazon\SettingTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\GetASINCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\GetASINResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\GetCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\GetHTMLCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\GetHTMLResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\GetResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\SettingASINTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\SettingHTMLTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\Amazon\SettingTasksRequest;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
 class MerchantApiAmazonTest extends TestCase
 {
@@ -22,8 +21,7 @@ class MerchantApiAmazonTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::MERCHANT_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
     /** @test */

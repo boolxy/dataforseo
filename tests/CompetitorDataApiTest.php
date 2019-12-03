@@ -3,8 +3,7 @@
 namespace BoolXY\DataForSEO\Tests;
 
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
-use BoolXY\DataForSEO\Api\CompetitorData\Requests\CompetitorInfoRequest;
+use BoolXY\DataForSEO\Requests\CompetitorData\CompetitorInfoRequest;
 
 class CompetitorDataApiTest extends TestCase
 {
@@ -14,8 +13,7 @@ class CompetitorDataApiTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::COMPETITOR_DATA_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
 

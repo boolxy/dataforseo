@@ -2,19 +2,18 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetBrokenPagesRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetDuplicatePagesRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetFilteredPagesRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetHTagsOnPageRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetImagesOnPageRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetLinksFromPageRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetLinksToPageRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetPagesRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetTaskResultSummaryRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\GetTasksStatusRequest;
-use BoolXY\DataForSEO\Api\OnPage\Requests\SettingTasksRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetBrokenPagesRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetDuplicatePagesRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetFilteredPagesRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetHTagsOnPageRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetImagesOnPageRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetLinksFromPageRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetLinksToPageRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetPagesRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetTaskResultSummaryRequest;
+use BoolXY\DataForSEO\Requests\OnPage\GetTasksStatusRequest;
+use BoolXY\DataForSEO\Requests\OnPage\SettingTasksRequest;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
 class OnPageApiTest extends TestCase
 {
@@ -24,8 +23,7 @@ class OnPageApiTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::ON_PAGE_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
     /** @test */

@@ -2,21 +2,20 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetHTMLCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetHTMLResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetProductSpecificationCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetProductSpecificationResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetSellersAdURLRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetSellersCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\GetSellersResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\SettingHTMLTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\SettingProductSpecificationTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\SettingSellersTasksRequest;
-use BoolXY\DataForSEO\Api\Merchant\Requests\GoogleShopping\SettingTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetHTMLCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetHTMLResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetProductSpecificationCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetProductSpecificationResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetSellersAdURLRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetSellersCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\GetSellersResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\SettingHTMLTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\SettingProductSpecificationTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\SettingSellersTasksRequest;
+use BoolXY\DataForSEO\Requests\Merchant\GoogleShopping\SettingTasksRequest;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
 class MerchantApiGoogleShoppingTest extends TestCase
 {
@@ -26,8 +25,7 @@ class MerchantApiGoogleShoppingTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::MERCHANT_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
     /** @test */

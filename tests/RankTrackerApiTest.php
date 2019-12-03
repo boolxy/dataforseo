@@ -2,10 +2,9 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-use BoolXY\DataForSEO\Api\RankTracker\Requests\GetRankTasksResultsRequest;
-use BoolXY\DataForSEO\Api\RankTracker\Requests\SettingRankTasksRequest;
+use BoolXY\DataForSEO\Requests\RankTracker\GetRankTasksResultsRequest;
+use BoolXY\DataForSEO\Requests\RankTracker\SettingRankTasksRequest;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
 class RankTrackerApiTest extends TestCase
 {
@@ -15,8 +14,7 @@ class RankTrackerApiTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::RANK_TRACKER_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
     /** @test */

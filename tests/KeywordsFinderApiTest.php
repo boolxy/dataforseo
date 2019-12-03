@@ -2,23 +2,22 @@
 
 namespace BoolXY\DataForSEO\Tests;
 
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\CategoriesForDomain\GetCategoriesForDomainRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\CompetitorsDomain\GetCompetitorsDomainRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\DomainIntersection\GetDomainIntersectionRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\KeywordsForCategories\GetKeywordsForCategoriesRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\KeywordsForTerms\GetKeywordsForTermsRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\RankedDomainsByCategory\GetRankedDomainsByCategoryRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\RankedKeywords\GetRankedKeywordsRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\RelatedKeywords\GetRelatedKeywordsRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\RelevantPages\GetRelevantPagesRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\SERPCompetitors\GetSERPCompetitorsRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\SimilarKeywords\GetSimilarKeywordsRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\Subdomains\GetSubdomainsRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\SuggestedKeywords\GetCompletedTasksRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\SuggestedKeywords\GetResultsByTaskIdRequest;
-use BoolXY\DataForSEO\Api\KeywordsFinder\Requests\SuggestedKeywords\SetTaskRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\CategoriesForDomain\GetCategoriesForDomainRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\CompetitorsDomain\GetCompetitorsDomainRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\DomainIntersection\GetDomainIntersectionRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\KeywordsForCategories\GetKeywordsForCategoriesRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\KeywordsForTerms\GetKeywordsForTermsRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\RankedDomainsByCategory\GetRankedDomainsByCategoryRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\RankedKeywords\GetRankedKeywordsRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\RelatedKeywords\GetRelatedKeywordsRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\RelevantPages\GetRelevantPagesRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\SERPCompetitors\GetSERPCompetitorsRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\SimilarKeywords\GetSimilarKeywordsRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\Subdomains\GetSubdomainsRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\SuggestedKeywords\GetCompletedTasksRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\SuggestedKeywords\GetResultsByTaskIdRequest;
+use BoolXY\DataForSEO\Requests\KeywordsFinder\SuggestedKeywords\SetTaskRequest;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
 
 class KeywordsFinderApiTest extends TestCase
 {
@@ -28,8 +27,7 @@ class KeywordsFinderApiTest extends TestCase
     {
         parent::setUp();
 
-        $this->dfs = DataForSEO::create($this->base_uri, $this->user, $this->pass)
-            ->setApi(Apis::KEYWORDS_FINDER_API);
+        $this->dfs = DataForSEO::create($this->client);
     }
 
     /** @test */
