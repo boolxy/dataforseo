@@ -13,9 +13,9 @@ composer require boolxy/dataforseo
 ## Usage
 
 ```php
+use BoolXY\DataForSEO\Client;
 use BoolXY\DataForSEO\DataForSEO;
-use BoolXY\DataForSEO\Apis;
-use BoolXY\DataForSEO\Requests\KeywordsData\Requests\SearchVolumeForKeyword\LiveDataRequest;
+use BoolXY\DataForSEO\Requests\KeywordsData\SearchVolumeForKeyword\LiveDataRequest;
 
 $data = [
     [
@@ -35,8 +35,9 @@ $data = [
     ],
 ];
 
-$result = DataForSEO::create($base_uri, $user, $pass)
-    ->setApi(Apis::KEYWORDS_DATA_API)
+$client = new Client($base_uri, $user, $pass);
+
+$result = DataForSEO::create($client)
     ->setRequest(LiveDataRequest::create($data))
     ->get();
 ```
