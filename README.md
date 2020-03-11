@@ -63,3 +63,9 @@ composer test
 ## Credits
 
 - [Sezai Ozarslan](https://github.com/sezaiozarslan)
+- [All Contributors](https://github.com/boolxy/dateforseo/graphs/contributors)
+
+## License
+
+The MIT License (MIT).
+Please see [License File](https://github.com/boolxy/dataforseo/blob/master/LICENSE.md) for more information.
