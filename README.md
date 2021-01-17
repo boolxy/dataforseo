@@ -1,4 +1,4 @@
-# DataForSEO
+# DataForSEO API Client Library for PHP
 
 The easiest way for using DataForSEO APIs in PHP
 
